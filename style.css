@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+ 
 body {
   min-height: 100vh;
   display: flex;
@@ -12,19 +12,20 @@ body {
   background-color: #C4E2F5;
   font-family: 'Medula One', sans-serif;
   perspective: 1800px;
+  padding: 20px;
 }
-
+ 
 .card {
   position: relative;
-  width: 800px;
-  height: 500px;
+  width: min(800px, 92vw);
+  height: min(500px, 80vh);
   display: flex;
   box-shadow: 0 10px 30px rgba(44, 94, 173, 0.35);
   border-radius: 8px;
 }
-
+ 
 /* ---------- INSIDE ---------- */
-
+ 
 .inside {
   position: absolute;
   top: 0;
@@ -35,7 +36,7 @@ body {
   border-radius: 8px;
   overflow: hidden;
 }
-
+ 
 .inside-left,
 .inside-right {
   width: 50%;
@@ -43,7 +44,7 @@ body {
   padding: 25px;
   position: relative;
 }
-
+ 
 .inside-left {
   background-color: #C4E2F5;
   border-right: 2px dashed #4BB8FA;
@@ -51,13 +52,13 @@ body {
   flex-direction: column;
   gap: 12px;
 }
-
+ 
 .photo-gallery {
   display: flex;
   gap: 10px;
   height: 45%;
 }
-
+ 
 .photo-gallery img {
   width: 50%;
   height: 100%;
@@ -66,11 +67,11 @@ body {
   border: 3px solid #fff;
   box-shadow: 0 4px 10px rgba(44, 94, 173, 0.25);
 }
-
+ 
 .photo-large {
   flex: 1;
 }
-
+ 
 .photo-large img {
   width: 100%;
   height: 100%;
@@ -79,44 +80,44 @@ body {
   border: 3px solid #fff;
   box-shadow: 0 4px 10px rgba(44, 94, 173, 0.25);
 }
-
+ 
 .inside-right {
   background-color: #C4E2F5;
   display: flex;
   flex-direction: column;
 }
-
+ 
 .inside-right h2 {
   color: #2C5EAD;
   font-family: 'Rye', serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
   margin-bottom: 18px;
 }
-
+ 
 .message {
   color: #2C5EAD;
   font-family: 'Medula One', sans-serif;
-  font-size: 1.3rem;
+  font-size: clamp(0.8rem, 2.2vw, 1.05rem);
   line-height: 1.9;
   flex: 1;
   white-space: pre-wrap;
 }
-
+ 
 .signature {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-
+ 
 .signature p {
   color: #2C5EAD;
   font-family: 'Rye', serif;
   font-size: 1.1rem;
   line-height: 1.5;
 }
-
+ 
 /* ---------- FRONT ---------- */
-
+ 
 .front {
   position: absolute;
   width: 100%;
@@ -138,7 +139,7 @@ body {
   border-radius: 8px;
   backface-visibility: hidden;
 }
-
+ 
 .front-content {
   width: 100%;
   height: 100%;
@@ -147,43 +148,43 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-
+ 
 .front-content h1 {
   font-family: 'Rye', serif;
-  font-size: 2.1rem;
+  font-size: clamp(1.3rem, 5vw, 2.1rem);
   margin-top: 5px;
   text-shadow: 2px 2px 0 #2C5EAD;
 }
-
+ 
 .front-image {
-  width: 230px;
-  height: 230px;
+  width: clamp(140px, 30vw, 230px);
+  height: clamp(140px, 30vw, 230px);
   border-radius: 10px;
   overflow: hidden;
   border: 5px solid #fff;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
-
+ 
 .front-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+ 
 .front-bottom {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+ 
 .from-text {
   font-family: 'Rye', serif;
   font-size: 1.1rem;
 }
-
+ 
 /* ---------- HEART BUTTONS ---------- */
-
+ 
 .heart-btn {
   position: relative;
   width: 60px;
@@ -194,7 +195,7 @@ body {
   outline: none;
   flex-shrink: 0;
 }
-
+ 
 .heart-btn::before,
 .heart-btn::after {
   content: "";
@@ -204,29 +205,29 @@ body {
   height: 48px;
   border-radius: 30px 30px 0 0;
 }
-
+ 
 .heart-btn::before {
   left: 30px;
   transform: rotate(-45deg);
   transform-origin: 0 100%;
 }
-
+ 
 .heart-btn::after {
   left: 0;
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
-
+ 
 .open-heart::before,
 .open-heart::after {
   background-color: #fff;
 }
-
+ 
 .close-heart::before,
 .close-heart::after {
   background-color: #2C5EAD;
 }
-
+ 
 .heart-btn span,
 .heart-label {
   position: absolute;
@@ -239,21 +240,103 @@ body {
   z-index: 2;
   pointer-events: none;
 }
-
+ 
 .open-heart .heart-label {
   color: #1591DC;
 }
-
+ 
 .close-heart .heart-label {
   color: #C4E2F5;
 }
-
+ 
 .heart-btn:hover {
   filter: brightness(1.08);
 }
-
+ 
 /* ---------- OPEN STATE ---------- */
-
+ 
 .card.open .front {
   transform: rotateY(-180deg);
+}
+ 
+/* ---------- RESPONSIVE / MOBILE ---------- */
+ 
+@media (max-width: 700px) {
+  body {
+    padding: 12px;
+    align-items: flex-start;
+  }
+ 
+  .card {
+    width: min(94vw, 800px);
+    height: min(88vh, 700px);
+  }
+ 
+  .front {
+    padding: 16px;
+  }
+ 
+  .front-content {
+    justify-content: space-around;
+    gap: 10px;
+  }
+ 
+  .front-bottom {
+    align-items: center;
+  }
+ 
+  .from-text {
+    font-size: 0.85rem;
+  }
+ 
+  /* stack inside-left / inside-right instead of side-by-side */
+  .inside {
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+ 
+  .inside-left,
+  .inside-right {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+ 
+  .inside-left {
+    border-right: none;
+    border-bottom: 2px dashed #4BB8FA;
+  }
+ 
+  .photo-gallery {
+    height: 130px;
+  }
+ 
+  .photo-large {
+    height: 150px;
+    flex: none;
+  }
+ 
+  .signature {
+    margin-top: 14px;
+  }
+ 
+  .heart-btn {
+    transform: scale(0.85);
+  }
+}
+ 
+@media (max-width: 420px) {
+  .front-content h1 {
+    font-size: 1.25rem;
+  }
+ 
+  .front-image {
+    width: 130px;
+    height: 130px;
+  }
+ 
+  .heart-btn {
+    transform: scale(0.75);
+  }
 }
